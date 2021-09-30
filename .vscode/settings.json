@@ -7,5 +7,11 @@
         "dotenv",
         "getenv",
         "imshow"
-    ]
+    ],
+    "azureFunctions.deploySubpath": "01_iot/data_processing",
+    "azureFunctions.scmDoBuildDuringDeployment": true,
+    "azureFunctions.projectLanguage": "Python",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.projectSubpath": "01_iot/data_processing"
 }
