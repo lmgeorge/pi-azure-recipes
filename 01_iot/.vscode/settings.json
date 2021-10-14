@@ -1,11 +1,16 @@
 {
-    "azureFunctions.deploySubpath": ".",
+    "azureFunctions.deploySubpath": "${workspaceFolder}/data_processing",
     "azureFunctions.scmDoBuildDuringDeployment": true,
-    "azureFunctions.pythonVenv": ".venv",
+    "azureFunctions.pythonVenv": "${workspaceFolder}/.venv",
     "azureFunctions.projectLanguage": "Python",
     "azureFunctions.projectRuntime": "~3",
     "debug.internalConsoleOptions": "neverOpen",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "azureFunctions.showExtensionsCsprojWarning": false,
+    "azureFunctions.showHiddenStacks": true,
+    "azureFunctions.showReloadTemplates": true,
+    "azureFunctions.templateFilter": "All",
+    "azureFunctions.validateFuncCoreTools": false
 }

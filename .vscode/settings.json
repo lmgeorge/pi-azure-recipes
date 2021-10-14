@@ -2,16 +2,8 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
-    "cSpell.ignoreWords": [
-        "adafruit",
-        "dotenv",
-        "getenv",
-        "imshow"
-    ],
-    "azureFunctions.deploySubpath": "01_iot/data_processing",
     "azureFunctions.scmDoBuildDuringDeployment": true,
     "azureFunctions.projectLanguage": "Python",
     "azureFunctions.projectRuntime": "~3",
     "debug.internalConsoleOptions": "neverOpen",
-    "azureFunctions.projectSubpath": "01_iot/data_processing"
 }

@@ -1,0 +1,50 @@
+{
+    "folders": [
+        {
+            "name": "iot",
+            "path": "01_iot"
+        },
+        {
+            "name": "c2d",
+            "path": "02_c2d_messages"
+        },
+        {
+            "name": "cv",
+            "path": "03_cv"
+        },
+        {
+            "name": "iot_central",
+            "path": "04_iot_central"
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "ms-azuretools.vscode-azurefunctions",
+            "ms-python.python",
+            "ms-vscode.azure-account",
+            "ms-azuretools.vscode-azurestorage",
+            "vsciot-vscode.azure-iot-tools"
+          ]
+    },
+    "settings": {
+        "debug.internalConsoleOptions": "neverOpen",
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": false,
+        "python.linting.enabled": true,
+        "azureFunctions.scmDoBuildDuringDeployment": false,
+        "azureFunctions.projectLanguage": "Python",
+        "azureFunctions.projectRuntime": "~3",    
+    },
+    "launch": {
+        "configurations": [],
+        "compounds": [
+            {
+                "name": "Attach to both apps",
+                "configurations": [
+                    "Attach to Python Functions",
+                    "Attach to Python Functions"
+                ]
+            }
+        ]
+    }
+}
