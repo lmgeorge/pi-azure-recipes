@@ -14,18 +14,9 @@
             "type": "String",
             "defaultValue": "[subscription().id]"
         },
-        "appName": {
-            "type": "String"
-        },
         "location": {
             "type": "String",
             "defaultValue": "[resourceGroup().location]"
-        },
-        "hostingPlanName": {
-            "type": "String"
-        },
-        "storageAccountName": {
-            "type": "String"
         },
         "use32BitWorkerProcess": {
             "type": "Bool"
@@ -54,12 +45,16 @@
         }
     },
     "variables": {
-        "prefix": "[concat(parameters('prefix'), 'azurepirecipes')]",
+        "prefix": "[concat(parameters('prefix'), '-azurepirecipes')]",
+        "alphaPrefix": "[replace(variables('prefix'),'-','')]",
         "appName": "[concat(variables('prefix'), '-site')]",
         "hostingPlanName": "",
-        "storageAccountName": "[concat(variables('prefix'), 'storage')]",
+        "storageAccountName": "[concat(variables('alphaPrefix'), 'storage')]",
         "insightsName": "[concat(variables('prefix'), '-insights')]",
-        "insightsWorkspaceName": "[uniqueString(concat(variables('prefix'), '-insights-workspace'))]"
+        "insightsWorkspaceName": "[uniqueString(concat(variables('prefix'), '-insights-workspace'))]",
+        "resources": {
+            "insights": "[concat('microsoft.insights/components/', variables('insightsName'))]"
+        }
     },
     "resources": [
         {
@@ -98,20 +93,20 @@
                         },
                         {
                             "name": "AzureWebJobsStorage",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
                         }
                     ],
                     "use32BitWorkerProcess": "[parameters('use32BitWorkerProcess')]",
                     "linuxFxVersion": "[parameters('linuxFxVersion')]"
                 },
-                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('resourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('resourceGroup'), '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
                 "clientAffinityEnabled": false
             }
         },
         {
             "type": "Microsoft.Web/serverfarms",
-            "apiVersion": "2018-11-01",
-            "name": "[parameters('hostingPlanName')]",
+            "apiVersion": "2019-08-01",
+            "name": "[variables('hostingPlanName')]",
             "location": "[parameters('location')]",
             "dependsOn": [],
             "tags": "[parameters('tags')]",
@@ -121,7 +116,7 @@
             },
             "kind": "linux",
             "properties": {
-                "name": "[parameters('hostingPlanName')]",
+                "name": "[variables('hostingPlanName')]",
                 "workerSize": "[parameters('workerSize')]",
                 "workerSizeId": "[parameters('workerSizeId')]",
                 "numberOfWorkers": "[parameters('numberOfWorkers')]",
@@ -138,7 +133,7 @@
             ],
             "tags": "[parameters('tags')]",
             "properties": {
-                "ApplicationId": "[parameters('appName')]",
+                "ApplicationId": "[variables('appName')]",
                 "Request_Source": "IbizaWebAppExtensionCreate",
                 "Flow_Type": "Redfield",
                 "Application_Type": "web",
@@ -148,7 +143,7 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-06-01",
-            "name": "[parameters('storageAccountName')]",
+            "name": "[variables('storageAccountName')]",
             "location": "[parameters('location')]",
             "tags": "[parameters('tags')]",
             "sku": {

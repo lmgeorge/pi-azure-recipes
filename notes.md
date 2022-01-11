@@ -1,3 +1,8 @@
+# Tools
+1. Powershell
+2. Azure CLI
+3. Azure Az Powershell Module
+
 # Setting up IOT hub
 Means: VS Code
 Configuration
@@ -12,9 +17,7 @@ Error:
 
 ## Running locally
 
-1. Install Azure Functions Core Tools manually
-    - https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v3%2Clinux%2Cpython%2Cazurecli%2Cbash%2Ckeda#install-the-azure-functions-core-tools
-
+1. Install [Azure Functions Core Tools] manually
 2. Resolve extension bundles issue
     
     - **Error**
@@ -63,7 +66,7 @@ Error:
         - Removed the `extensionBundle` block from `data_processing/host.json`
         - See: https://github.com/Azure/azure-functions-core-tools/issues/2232#issuecomment-781818217
 
-1. Trigger the function by going to: http://localhost:7071/admin/functions/telemetry_saver
+3. Trigger the function by going to: http://localhost:7071/admin/functions/telemetry_saver
     
     Sample of successful output:
 
@@ -85,3 +88,8 @@ Error:
     [2021-10-13T02:04:02.149Z]   duration: "169"
     [2021-10-13T02:04:02.149Z] }
     ```
+
+<!-- References -->
+[Azure CLI]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+[Azure Functions Core Tools]: https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v3%2Clinux%2Cpython%2Cazurecli%2Cbash%2Ckeda#install-the-azure-functions-core-tools
+[Powershell]: https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell

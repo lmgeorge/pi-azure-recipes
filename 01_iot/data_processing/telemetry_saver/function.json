@@ -5,7 +5,7 @@
       "type": "eventHubTrigger",
       "name": "events",
       "direction": "in",
-      "eventHubName": "iothub-ehub-lmg-azurep-14054105-f04f0b08b2",
+      "eventHubName": "<EVENT_HUB_NAME>",
       "connection": "IoTHubConnectionString",
       "cardinality": "many",
       "consumerGroup": "$Default",

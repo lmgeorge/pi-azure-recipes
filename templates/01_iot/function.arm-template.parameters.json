@@ -11,22 +11,7 @@
         "subscriptionId": {
             "value": ""
         },
-        "name": {
-            "value": ""
-        },
         "location": {
-            "value": ""
-        },
-        "hostingPlanName": {
-            "value": ""
-        },
-        "serverFarmResourceGroup": {
-            "value": ""
-        },
-        "alwaysOn": {
-            "value": false
-        },
-        "storageAccountName": {
             "value": ""
         },
         "use32BitWorkerProcess": {
@@ -50,8 +35,10 @@
         "numberOfWorkers": {
             "value": ""
         },
-        "email": {
-            "value": "laurengeorge@microsoft.com"
+        "tags": {
+            "value": {
+                "tags": "laurengeorge@microsoft.com"
+            }
         }
     }
 }

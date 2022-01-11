@@ -130,7 +130,7 @@ First we'll provision the Azure resources we need for this sample. We're going t
 
     > Make sure that *raspberry-pi-client.py* is still running on your Pi
 
-1. Open a web browser and past the url from the previous step
+1. Open a web browser and paste the url from the previous step
 
 1. Your Pi should print out ```Device is on```
 
